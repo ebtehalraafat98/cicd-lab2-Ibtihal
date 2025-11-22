@@ -18,14 +18,14 @@ pipeline {
 
         stage('Compile') {
             steps {
-                sh 'echo "Step 1: Compiling Java project..."'
-                sh 'javac HelloWorld.java'
+                sh 'echo "Step 1: Compiling all Java files..."'
+                sh 'javac *.java'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'echo "Step 2: Running tests..."'
+                sh 'echo "Step 2: Running program..."'
                 sh 'java HelloWorld'
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'echo "Step 3: Packaging application..."'
-                sh 'jar cf HelloWorld.jar HelloWorld.class'
+                sh 'jar cf app.jar *.class'
             }
         }
     }
