@@ -12,17 +12,15 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<username>/cicd-lab2-ebtehal.git'
+                git branch: 'main', url: 'https://github.com/ebtehalraafat98/cicd-lab2-Ibtihal.git'
             }
         }
-
 
         stage('Compile') {
             steps {
                 sh 'echo "Step 1: Compiling Java project..."'
                 sh './mvnw clean compile'
             }
-            
         }
 
         stage('Test') {
