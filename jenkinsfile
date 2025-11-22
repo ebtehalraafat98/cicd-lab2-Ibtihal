@@ -12,30 +12,28 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<username>/cicd-lab2-ebtehal.git'
+                git branch: 'main', url: 'https://github.com/ebtehalraafat98/cicd-lab2-Ibtihal.git'
             }
         }
 
-
         stage('Compile') {
             steps {
-                sh 'echo "Step 1: Compiling Java project..."'
-                sh './mvnw clean compile'
+                sh 'echo "Step 1: Compiling all Java files..."'
+                sh 'javac *.java'
             }
-            
         }
 
         stage('Test') {
             steps {
-                sh 'echo "Step 2: Running tests..."'
-                sh './mvnw test'
+                sh 'echo "Step 2: Running program..."'
+                sh 'java HelloWorld'
             }
         }
 
         stage('Package') {
             steps {
                 sh 'echo "Step 3: Packaging application..."'
-                sh './mvnw package'
+                sh 'jar cf app.jar *.class'
             }
         }
     }
