@@ -16,11 +16,13 @@ pipeline {
             }
         }
 
+
         stage('Compile') {
             steps {
                 sh 'echo "Step 1: Compiling Java project..."'
                 sh './mvnw clean compile'
             }
+            
         }
 
         stage('Test') {
